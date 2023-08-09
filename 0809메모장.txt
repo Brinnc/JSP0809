@@ -1,0 +1,7 @@
+톰캣 설치 후
+톰캣폴더의 server.xml을 편집기로 열어서 아래 내용을 추가함
+<!--우리만의 웹 어플리케이션을 톰캣에 등록, 즉 배포함-->
+<Host name="127.0.0.1"  appBase="webapps" unpackWARs="true" autoDeploy="true">
+<Context path="" docBase="D:\morning\javaee_workspace\web0809" reloadable="true">
+</Context>
+</Host>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Document</title>
+</head>
+<script>
+//서버로 전송
+//js는 오라클 연동 능력이 없으므로(코드가 노출되므로 보안이 불가), 사용자가 입력한 입력폼의 데이터를 서버로 전송하여 오라클에 insert할 것을 요청(:request) 
+function send(){
+	//문서 안의 폼을 전송
+	let form1=document.getElementById("form1");
+	//어디로 전송할지 해당 서버 주소를 명시
+	form1.action="http://127.0.0.1:8888/db.jsp";
+	form1.method="POST"; //POST방식 : 데이터를 노출시키지 않음
+	form1.submit(); //서버로 form양식 안의 데이터를 전송함
+	
+
+	//폼양식 전송 시 개발자가 전송방식을 지정하지 않으면, 디폴트 전송방식은 get방식이 됨
+	//따라서 주소창(url)에 파라미터와 그값들이 노출되어짐
+}
+
+</script>
+<body>
+	<div id="wrapper">
+		<form id="form1">
+		<!--
+			id와 name은 둘다 요소를 구분하기 위함이지만,
+			특히 name은 전송 시 변수 역할도 해줄 수 있음. 즉, 전송파라미터의 역할을 함
+		-->
+			<div>
+				<input name="id" type="text" placeholder="ID를 입력하셈">
+			</div>
+			<div>
+				<input name="name" type="text" placeholder="이름을 입력하셈">
+			</div>
+			<div>
+				<input name="phone" type="text" placeholder="전화번호를 입력하셈">
+			</div>
+		</form>
+		<div>
+			<button onClick="send()">전송</button>
+		</div>
+	</div>
+</body>
+</html>
